@@ -6,7 +6,17 @@ from spotipy.oauth2 import SpotifyClientCredentials
 CLIENT_ID = "bd3552464b90445cb3f452f9b3afcae9"
 CLIENT_SECRET = "9d2639aaa3e4463392914151963e4da6"
 
+import gdown
 
+file_id = "your_drive_file_id"
+file_url = f"https://drive.google.com/uc?id={file_id}"
+output_file = "similarity.pkl"
+
+try:
+    similarity = pickle.load(open(output_file, "rb"))
+except FileNotFoundError:
+    gdown.download(file_url, output_file, quiet=False)
+    similarity = pickle.load(open(output_file, "rb"))
 
 # Initialize the Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
