@@ -1,9 +1,9 @@
-Music Recommendation System 🎵
+#Music Recommendation System 🎵
 
 A Music Recommendation System built using Machine Learning and Spotify API that suggests songs based on user input. The system analyzes song similarities and provides personalized recommendations with album covers and Spotify links.
 
-🚀 Features
-Deployment Link : https://saurabhyadav45-music-recommendation-system-ml-app-ooqcsk.streamlit.app/
+##🚀 Features                                                                                                                                                           
+###Deployment Link : https://saurabhyadav45-music-recommendation-system-ml-app-ooqcsk.streamlit.app/
 
 🔍 Search & Select: Choose a song from the dropdown list.
 
@@ -15,7 +15,7 @@ Deployment Link : https://saurabhyadav45-music-recommendation-system-ml-app-ooqc
 
 🌐 Deployed on Streamlit Cloud for easy access.
 
-🛠 Tech Stack
+###🛠 Tech Stack
 
 Frontend: Streamlit
 
