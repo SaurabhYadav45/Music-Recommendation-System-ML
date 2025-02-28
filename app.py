@@ -25,27 +25,6 @@ similarity = pickle.load(open(similarity_file, "rb"))
 # Load df.pkl (which is already present locally)
 music = pickle.load(open(df_file, "rb"))
 
-# url = "https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
-# output = "similarity.pkl"
-
-# if not os.path.exists(similarity_file):
-#     gdown.download(similarity_url, similarity_file, quiet=False)
-
-# # Check if df.pkl exists
-# if not os.path.exists(df_file):
-#     gdown.download(df_url, df_file, quiet=False)
-# # Load the similarity matrix
-# similarity = pickle.load(open("similarity.pkl", "rb"))
-
-# file_id = "your_drive_file_id"
-# file_url = f"https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
-# output_file = "similarity.pkl"
-
-# try:
-#     similarity = pickle.load(open(output_file, "rb"))
-# except FileNotFoundError:
-#     gdown.download(file_url, output_file, quiet=False)
-#     similarity = pickle.load(open(output_file, "rb"))
 
 # Initialize the Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
@@ -81,9 +60,6 @@ def recommend(song):
         print(music.iloc[i[0]].song)
 
         album_cover_url, song_url = get_song_album_cover_url(song_name, artist)
-        # recommended_music_posters.append(get_song_album_cover_url(music.iloc[i[0]].song, artist))
-        # recommended_music_names.append(music.iloc[i[0]].song)
-        # recommended_music_names.append(song_name)
 
         recommended_music_posters.append(album_cover_url)
         recommended_music_urls.append(song_url)
