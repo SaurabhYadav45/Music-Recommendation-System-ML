@@ -2,19 +2,40 @@ import pickle
 import streamlit as st
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import os
 
 CLIENT_ID = "bd3552464b90445cb3f452f9b3afcae9"
 CLIENT_SECRET = "9d2639aaa3e4463392914151963e4da6"
 
 import gdown
 
-url = "https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
-output = "similarity.pkl"
+similarity_url = "https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
 
-gdown.download(url, output, quiet=False)
+# Local filenames
+similarity_file = "similarity.pkl"
+df_file = "df.pkl"  # Already present locally
+
+# Download similarity.pkl if not present
+if not os.path.exists(similarity_file):
+    gdown.download(similarity_url, similarity_file, quiet=False)
 
 # Load the similarity matrix
-similarity = pickle.load(open("similarity.pkl", "rb"))
+similarity = pickle.load(open(similarity_file, "rb"))
+
+# Load df.pkl (which is already present locally)
+music = pickle.load(open(df_file, "rb"))
+
+# url = "https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
+# output = "similarity.pkl"
+
+# if not os.path.exists(similarity_file):
+#     gdown.download(similarity_url, similarity_file, quiet=False)
+
+# # Check if df.pkl exists
+# if not os.path.exists(df_file):
+#     gdown.download(df_url, df_file, quiet=False)
+# # Load the similarity matrix
+# similarity = pickle.load(open("similarity.pkl", "rb"))
 
 # file_id = "your_drive_file_id"
 # file_url = f"https://drive.google.com/uc?id=1F7bMlMadWdl-6uFSZ0b2lqS-CHerHu_d"
